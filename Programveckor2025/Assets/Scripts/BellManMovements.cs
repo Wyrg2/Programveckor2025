@@ -6,6 +6,7 @@ public class BellManMovements : MonoBehaviour
 {
     // Start is called before the first frame update
     Rigidbody2D rb;
+    public float BellManSpeed;
     void Start()
     {
         transform.position = new Vector2(0, -2.8f);
@@ -15,13 +16,13 @@ public class BellManMovements : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.A) || (Input.GetKey(KeyCode.LeftArrow)))
+        if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) 
         {
-            rb.velocity += new Vector2(-50, 0);
+            transform.position += (Vector3.left *Time.deltaTime * BellManSpeed);
         }
-        if (Input.GetKey(KeyCode.A) || (Input.GetKey(KeyCode.RightArrow)))
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
-            rb.velocity += new Vector2(50, 0);
+            transform.position += (Vector3.right * Time.deltaTime * BellManSpeed);
         }
     }
 }
