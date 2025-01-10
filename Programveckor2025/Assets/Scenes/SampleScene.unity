@@ -294,6 +294,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BellManSpeed: 10
+  BellmanMaxSpeed: 5
+  Retardera: 0.3
+  jumpHeight: 7
+  fallMultiplier: 5
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
