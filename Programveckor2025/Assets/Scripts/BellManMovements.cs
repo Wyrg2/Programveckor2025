@@ -18,11 +18,27 @@ public class BellManMovements : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) 
         {
-            transform.position += (Vector3.left *Time.deltaTime * BellManSpeed);
+            if(BellManSpeed< 10)
+            {
+                BellManSpeed += 0.2f;
+            }
+            rb.velocity = new Vector2(-BellManSpeed, 0);
+            if (BellManSpeed > 0)
+            {
+                BellManSpeed -= 0.2f;
+            }
         }
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
-            transform.position += (Vector3.right * Time.deltaTime * BellManSpeed);
+            if(BellManSpeed < 10) 
+            {
+                 BellManSpeed += 0.2f;
+            }
+            rb.velocity = new Vector2(BellManSpeed,0);
+            if(BellManSpeed > 0)
+            {
+                BellManSpeed -= 0.2f;
+            }
         }
     }
 }
