@@ -31,6 +31,15 @@ public class BellManMovements : MonoBehaviour
         }
         rb.velocity = new Vector2(Direction * 10, rb.velocity.y);
 
+
+
+
+        //Animation Responsible Code
+        if(Direction == 0)
+        {
+           
+        }
+
         //Jump Script
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.LeftArrow))
         { 
