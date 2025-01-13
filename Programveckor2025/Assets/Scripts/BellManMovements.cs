@@ -41,13 +41,18 @@ public class BellManMovements : MonoBehaviour
              BellManSpeed += 0.5f;
          }
        }
-       if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+       else if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
        {
             if (BellManSpeed < 10)
             {
                 BellManSpeed += 0.5f;
             }
-       }
+        }
+        else
+        {
+            BellManSpeed -= 0.5f;
+        }
+
 
         rb.velocity = new Vector2(BellManSpeed * Direction * Time.deltaTime, rb.velocity.y);
 
