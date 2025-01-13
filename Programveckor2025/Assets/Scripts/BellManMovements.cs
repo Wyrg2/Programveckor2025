@@ -6,6 +6,9 @@ public class BellManMovements : MonoBehaviour
 {
     // Start is called before the first frame update
     Rigidbody2D rb;
+<<<<<<< HEAD
+    float Direction;
+=======
     
     public float BellManSpeed;
     public float BellmanMaxSpeed;
@@ -18,6 +21,7 @@ public class BellManMovements : MonoBehaviour
 
     Vector2 gravity;
 
+>>>>>>> a6777f96fb03468e705a7d32917d3436353e6ff6
     void Start()
     {
          rb = GetComponent<Rigidbody2D>();
@@ -27,6 +31,12 @@ public class BellManMovements : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+<<<<<<< HEAD
+        // Movement Script
+       if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        {
+            transform.position = transform.position + (Vector3.left*10) * Time.deltaTime;
+=======
         falling();
         
         //Movement
@@ -46,9 +56,13 @@ public class BellManMovements : MonoBehaviour
                 BellManSpeed -= Retardera;
             }
             
+>>>>>>> a6777f96fb03468e705a7d32917d3436353e6ff6
         }
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+       if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
+<<<<<<< HEAD
+            transform.position = transform.position + (Vector3.right*10)* Time.deltaTime;
+=======
 
             falling();
             
@@ -112,6 +126,12 @@ public class BellManMovements : MonoBehaviour
         {
             isGrounded = false;
             canDoubleJump = true;
+>>>>>>> a6777f96fb03468e705a7d32917d3436353e6ff6
         }
+       if (Input.GetKeyDown(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        {
+            rb.velocity = new Vector2(rb.velocity.x, 25);
+        }
+
     }
 }
