@@ -6,13 +6,13 @@ public class BellManMovements : MonoBehaviour
 {
     // Start is called before the first frame update
     Rigidbody2D rb;
-    float Direction;
+    
     
     public float BellManSpeed;
     public float BellmanMaxSpeed;
-    public float Retardera;
     public float jumpHeight;
     public float fallMultiplier;
+    private float Direction;
     
     bool isGrounded;
     bool canDoubleJump;
@@ -23,50 +23,34 @@ public class BellManMovements : MonoBehaviour
     {
          rb = GetComponent<Rigidbody2D>();
          gravity = new Vector2(rb.velocity.x, jumpHeight/2);
+        Direction = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        Direction = (Input.GetAxis("Horizontal"));
        
         falling();
         
         //Movement
-        if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) 
-        {
-            rb.velocity = new Vector2(BellManSpeed, rb.velocity.y);
-            
-            if(BellManSpeed< BellmanMaxSpeed)
-            {
-                BellManSpeed += Retardera;
-            }
-            rb.velocity = new Vector2(-BellManSpeed, 0);
-            if (BellManSpeed > 0)
-            {
-                BellManSpeed -= Retardera;
-            }
-            
-            falling();
-        }
+       if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) 
+       {
+         if(BellManSpeed < 10)
+         {
+             BellManSpeed += 0.5f;
+         }
+       }
        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-        { 
-            falling();
-            
-            isGrounded = true;
-            
-            if(BellManSpeed < BellmanMaxSpeed) 
+       {
+            if (BellManSpeed < 10)
             {
-                 BellManSpeed += Retardera;
+                BellManSpeed += 0.5f;
             }
-            rb.velocity = new Vector2(BellManSpeed,0);
-            if(BellManSpeed > 0)
-            {
-                BellManSpeed -= Retardera;
-            }
-            
-        }
-        
+       }
+
+        rb.velocity = new Vector2(BellManSpeed * Direction * Time.deltaTime, rb.velocity.y);
+
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded==true)
         {
             Jump();
