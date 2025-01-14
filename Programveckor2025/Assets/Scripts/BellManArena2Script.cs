@@ -25,7 +25,7 @@ public class BellManArena2Script : MonoBehaviour
         // This code is responsible for movement
         Direction = (Input.GetAxis("Horizontal"));
         rb.velocity = new Vector2(Direction * 7.5f, rb.velocity.y);
-        if(Input.GetKeyDown(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space))
         {
             if(JumpsLeft > 0)
             {
