@@ -42,17 +42,18 @@ public class BellManMovements : MonoBehaviour
 
         if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
-            Animate.Play("BellManMove");
-        }
+            Animate.SetBool("isWalking", true);
+        } 
         else
         {
-            Animate.Play("BellManIdle");
+            Animate.SetBool("isWalking", false);
         }
 
         //Jump Script
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
         {
             Jump();
+            
         }
 
         //Double Jump Script
@@ -60,17 +61,23 @@ public class BellManMovements : MonoBehaviour
         {
             doubleJump();
             canDoubleJump = false;
+            Animate.SetBool("isDoublejumping", false);
         }
     }
 
     void Jump()
     {
         rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
+        Animate.SetBool("isJumping", true);
+        Animate.SetBool("isJumping", false);
+        Animate.SetBool("isFalling", true);
     }
 
     void doubleJump()
     {
         rb.velocity = new Vector2(rb.velocity.x, jumpHeight * 0.75f);
+        Animate.SetBool("isDoublejumping", true);
+        Animate.SetBool("isFalling", true);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -78,6 +85,7 @@ public class BellManMovements : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             isGrounded = true;
+            Animate.SetBool("isFalling", false);
         }
     }
 
