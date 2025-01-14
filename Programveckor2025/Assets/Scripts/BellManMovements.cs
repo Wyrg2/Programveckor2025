@@ -8,12 +8,14 @@ public class BellManMovements : MonoBehaviour
     private float Speed;
     private float Direction;
     int JumpsLeft;
+    Animator Animate;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         transform.position = new Vector2(0, 0);
         Speed = 0;
+        Animate = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -35,9 +37,13 @@ public class BellManMovements : MonoBehaviour
 
 
         //Animation Responsible Code
-        if(Direction == 0)
+        if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
-           
+            Animate.Play("Walking");
+        }
+        else
+        {
+            Animate.Play("New idle");
         }
 
         //Jump Script
