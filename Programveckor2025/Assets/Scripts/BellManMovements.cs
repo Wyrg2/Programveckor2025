@@ -42,11 +42,11 @@ public class BellManMovements : MonoBehaviour
 
         if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
-            Animate.Play("Walking");
+            Animate.Play("BellManMove");
         }
         else
         {
-            Animate.Play("New idle");
+            Animate.Play("BellManIdle");
         }
 
         //Jump Script
