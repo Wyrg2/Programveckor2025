@@ -527,7 +527,7 @@ GameObject:
   - component: {fileID: 1153252248}
   - component: {fileID: 1153252247}
   m_Layer: 0
-  m_Name: Idle-Sheet_0
+  m_Name: BellMan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -669,7 +669,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.10555556, y: 0.19444445}
+    oldSize: {x: 0.10555556, y: 0.20555556}
     newSize: {x: 0.10555556, y: 0.20555556}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -693,7 +693,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 2.5
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
