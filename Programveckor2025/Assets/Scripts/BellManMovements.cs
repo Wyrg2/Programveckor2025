@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BellManMovements : MonoBehaviour
 {
     Rigidbody2D rb;
-    private float Speed;
     private float Direction;
+    public float jumpHeight;
+    bool isGrounded;
+    bool canDoubleJump;
+
     int JumpsLeft;
     Animator Animate;
     // Start is called before the first frame update
@@ -34,9 +38,10 @@ public class BellManMovements : MonoBehaviour
         rb.velocity = new Vector2(Direction * 10, rb.velocity.y);
 
 
-
-
         //Animation Responsible Code
+        if (Direction == 0)
+        {}
+
         if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             Animate.Play("Walking");
@@ -47,21 +52,46 @@ public class BellManMovements : MonoBehaviour
         }
 
         //Jump Script
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.LeftArrow))
-        { 
-            if(JumpsLeft > 0)
-            {
-                rb.velocity = new Vector2(rb.velocity.x, 10);
-                JumpsLeft -= 1;
-            }
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
+        {
+            Jump();
         }
+
+        //Double Jump Script
+        if (Input.GetKeyDown(KeyCode.Space) && canDoubleJump == true)
+        {
+            doubleJump();
+            canDoubleJump = false;
+        }
+
+
     }
+
+    void Jump()
+    {
+        rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
+    }
+
+    void doubleJump()
+    {
+        rb.velocity = new Vector2(rb.velocity.x, jumpHeight * 0.75f);
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // detects if the player is touching the ground so the player will not be able to jump forever
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.tag == "Ground")
         {
-            JumpsLeft = 2;
+            isGrounded = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            isGrounded = false;
+            canDoubleJump = true;
         }
     }
 }
+   
