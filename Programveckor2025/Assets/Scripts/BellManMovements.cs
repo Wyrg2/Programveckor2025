@@ -61,7 +61,6 @@ public class BellManMovements : MonoBehaviour
         {
             doubleJump();
             canDoubleJump = false;
-            Animate.SetBool("isDoublejumping", false);
         }
     }
 
@@ -86,6 +85,7 @@ public class BellManMovements : MonoBehaviour
         {
             isGrounded = true;
             Animate.SetBool("isFalling", false);
+            Animate.SetBool("isDoublejumping", false);
         }
     }
 
