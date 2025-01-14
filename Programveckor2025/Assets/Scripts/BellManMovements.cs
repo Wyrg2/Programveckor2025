@@ -6,19 +6,19 @@ using UnityEngine;
 public class BellManMovements : MonoBehaviour
 {
     Rigidbody2D rb;
+    
     private float Direction;
     public float jumpHeight;
+    
     bool isGrounded;
     bool canDoubleJump;
-
-    int JumpsLeft;
+    
     Animator Animate;
+    
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        transform.position = new Vector2(0, 0);
-        Speed = 0;
         Animate = GetComponent<Animator>();
     }
 
@@ -39,8 +39,6 @@ public class BellManMovements : MonoBehaviour
 
 
         //Animation Responsible Code
-        if (Direction == 0)
-        {}
 
         if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
@@ -63,8 +61,6 @@ public class BellManMovements : MonoBehaviour
             doubleJump();
             canDoubleJump = false;
         }
-
-
     }
 
     void Jump()
