@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 
 public class BellManArena2Script : MonoBehaviour
@@ -9,19 +10,21 @@ public class BellManArena2Script : MonoBehaviour
     private float BellManSpeed;
     private float Direction;
     private int JumpsLeft;
+    private Animator animate;
     void Start()
     {
         transform.position = new Vector2(-0.72f, -0.87f);
         rb = GetComponent<Rigidbody2D>();
         JumpsLeft = 0;
+        animate = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        print(JumpsLeft);
+        // This code is responsible for movement
         Direction = (Input.GetAxis("Horizontal"));
-        rb.velocity = new Vector2(Direction * 5, rb.velocity.y);
+        rb.velocity = new Vector2(Direction * 7.5f, rb.velocity.y);
         if(Input.GetKeyDown(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.Space))
         {
             if(JumpsLeft > 0)
@@ -29,6 +32,35 @@ public class BellManArena2Script : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, 10);
                 JumpsLeft -= 1;
             }
+        }
+        //This code is responsible for animations
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        {
+            if (rb.velocity.y == 0)
+            {
+                animate.Play("BellManMove");
+            }
+        }
+        else
+        {
+            if(rb.velocity.y == 0)
+            {
+                animate.Play("BellManIdle");
+            }
+        }
+
+
+        if(rb.velocity.y > 5)
+        {
+            animate.Play("BellManUp");
+        }
+        if(rb.velocity.y < 5 && rb.velocity.y > -1 && JumpsLeft < 2)
+        {
+            animate.Play("BellManUpMiddle");
+        }
+        if(rb.velocity.y < 0 && JumpsLeft < 2)
+        {
+            animate.Play("BellManFalling");
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
