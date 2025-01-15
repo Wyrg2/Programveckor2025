@@ -473,7 +473,7 @@ GameObject:
   - component: {fileID: 1601813345}
   - component: {fileID: 1601813344}
   - component: {fileID: 1601813343}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -565,7 +565,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpHeight: 8
-  projectile: {fileID: 4785015591492621220, guid: fe0b8c4857729c341ac28008274e0d1d, type: 3}
+  cooldown: 0.5
+  projectilePrefab: {fileID: 4785015591492621220, guid: fe0b8c4857729c341ac28008274e0d1d, type: 3}
   shooter: {fileID: 1372357853}
 --- !u!95 &1601813346
 Animator:
