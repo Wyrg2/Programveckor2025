@@ -12,25 +12,46 @@ public class Knight_Movement_Script : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        transform.position = new Vector2(10.7f, -1.09f);
-        KnightDirection = -10;
+        transform.position = new Vector2(12.1f, -1.22f);
+        KnightDirection = -3;
+        animate = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector2((transform.position.x) + (KnightDirection * Time.deltaTime), -1.09f);
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Border"))
+        // Movement Code
+        transform.position += (Vector3.left* KnightDirection * Time.deltaTime);
+        if((transform.position.x > 12.31f && KnightDirection == -3) || (transform.position.x < -12.07f && KnightDirection == 3))
         {
             KnightDirection *= -1;
         }
+        
+
+
+
+
+        // Animation Code
+        if(KnightDirection == 3)
+        {
+            transform.localScale = new Vector2(-15, 15);
+        }
+
+        if(KnightDirection == -3)
+        {
+            transform.localScale = new Vector2(15, 15);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
         if (collision.gameObject.CompareTag("Player"))
         {
-            animate.SetTrigger("Knight Attack");
+            animate.Play("KnightAttack");
+        }
+        else
+        {
+            animate.Play("Knight Boss Dude");
         }
     }
 }

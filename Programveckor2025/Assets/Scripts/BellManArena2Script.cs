@@ -50,7 +50,18 @@ public class BellManArena2Script : MonoBehaviour
         }
 
 
-        if(rb.velocity.y > 5)
+        if(Direction > 0)
+        {
+            transform.localScale = new Vector2(-10, 10);
+        }
+        
+        if (Direction < 0)
+        {
+            transform.localScale = new Vector2(10, 10);
+        }
+
+
+        if (rb.velocity.y > 5)
         {
             animate.Play("BellManUp");
         }
