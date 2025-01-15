@@ -10,6 +10,10 @@ public class BellManMovements : MonoBehaviour
     private float Direction;
     public float jumpHeight;
     
+
+    public GameObject projectile;
+    public GameObject shooter;
+    
     bool isGrounded;
     bool canDoubleJump;
     
@@ -24,17 +28,21 @@ public class BellManMovements : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {   
         //Left and right movement script
         Direction = (Input.GetAxis("Horizontal"));
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             Direction = (Input.GetAxis("Horizontal"));
+            
+            
         }
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             Direction = (Input.GetAxis("Horizontal"));
         }
+
+        
         rb.velocity = new Vector2(Direction * 10, rb.velocity.y);
 
 
@@ -62,6 +70,13 @@ public class BellManMovements : MonoBehaviour
             doubleJump();
             canDoubleJump = false;
         }
+
+        //Shooting script
+        if (Input.GetMouseButton(0))
+        {
+            shoot();
+        }
+
     }
 
     void Jump()
@@ -77,6 +92,11 @@ public class BellManMovements : MonoBehaviour
         rb.velocity = new Vector2(rb.velocity.x, jumpHeight * 0.75f);
         Animate.SetBool("isDoublejumping", true);
         Animate.SetBool("isFalling", true);
+    }
+
+    void shoot()
+    {
+       projectile =  Instantiate(projectile, shooter.transform.position, Quaternion.identity);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
