@@ -30,7 +30,7 @@ public class Knight_Movement_Script : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Player"))
         {
-            
+            animate.SetTrigger("Knight Attack");
         }
     }
 }
