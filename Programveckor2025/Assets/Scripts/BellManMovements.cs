@@ -9,6 +9,11 @@ public class BellManMovements : MonoBehaviour
     
     private float Direction;
     public float jumpHeight;
+    public float cooldown = 0.5f;
+    float timer = 0;
+    
+    public GameObject projectilePrefab;
+    public GameObject shooter;
     
     bool isGrounded;
     bool canDoubleJump;
@@ -25,16 +30,22 @@ public class BellManMovements : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        timer -= Time.deltaTime;
         //Left and right movement script
         Direction = (Input.GetAxis("Horizontal"));
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             Direction = (Input.GetAxis("Horizontal"));
+            
+            
         }
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             Direction = (Input.GetAxis("Horizontal"));
         }
+
+        
         rb.velocity = new Vector2(Direction * 10, rb.velocity.y);
 
 
@@ -62,6 +73,14 @@ public class BellManMovements : MonoBehaviour
             doubleJump();
             canDoubleJump = false;
         }
+
+        //Shooting script
+        if (Input.GetMouseButton(0) && timer<=0)
+        {
+            Instantiate(projectilePrefab, shooter.transform.position, Quaternion.identity);
+            timer = cooldown;
+        }
+
     }
 
     void Jump()
