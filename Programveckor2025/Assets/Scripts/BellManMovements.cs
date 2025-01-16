@@ -11,6 +11,7 @@ public class BellManMovements : MonoBehaviour
     public float jumpHeight;
     public float cooldown = 0.5f;
     float timer = 0;
+    public float bulletspeed;
     
     public GameObject projectilePrefab;
     public GameObject shooter;
@@ -77,7 +78,13 @@ public class BellManMovements : MonoBehaviour
         //Shooting script
         if (Input.GetMouseButton(0) && timer<=0)
         {
-            Instantiate(projectilePrefab, shooter.transform.position, Quaternion.identity);
+           
+            GameObject bullet = Instantiate(projectilePrefab, shooter.transform.position, Quaternion.identity);
+            bullet.GetComponent<ProjectileBehaviour>().direction= Direction*bulletspeed;
+            if (Direction==0)
+            {
+                bullet.GetComponent<ProjectileBehaviour>().direction = bulletspeed;
+            }
             timer = cooldown;
         }
 
