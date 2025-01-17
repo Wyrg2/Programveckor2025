@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Healt : MonoBehaviour
 {
@@ -16,9 +17,10 @@ public class Healt : MonoBehaviour
     public void TakeDamage(int amount)
     {
         health -= amount;
+        print("test");
         if(health <= 0)
         {
-            Destroy(gameObject);
+               // SceneManager.LoadScene(0);
         }
     }
 
