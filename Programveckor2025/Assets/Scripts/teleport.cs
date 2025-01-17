@@ -5,49 +5,35 @@ using UnityEngine.SceneManagement;
 
 public class teleport : MonoBehaviour
 {
+
+    bool canTeleport = false;
+    int whatplaceyouendupin;
+
     // Start is called before the first frame update
-
-    float whatplaceyouendupin;
-
-    void Start()
+    private void Start()
     {
         whatplaceyouendupin = Random.Range(1, 5);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-       
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) && canTeleport == true)
         {
-            if (collision.gameObject.tag== "Player")
-            {
-                if (whatplaceyouendupin == 1)
-                {
-                    SceneManager.LoadScene(1);
-                }
-
-                if (whatplaceyouendupin == 2)
-                {
-                    SceneManager.LoadScene(2);
-                }
-
-                if (whatplaceyouendupin == 3)
-                {
-                    SceneManager.LoadScene(3);
-                }
-
-                if (whatplaceyouendupin == 4)
-                {
-                    SceneManager.LoadScene(4);
-                }
-            }
+            SceneManager.LoadScene(whatplaceyouendupin);
         }
-        
     }
 
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        canTeleport = true;  
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        canTeleport = false;
+    }
+
+   
 }
