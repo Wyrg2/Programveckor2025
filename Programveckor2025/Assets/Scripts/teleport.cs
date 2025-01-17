@@ -12,11 +12,13 @@ public class teleport : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        whatplaceyouendupin = Random.Range(1, 5);
+        
     }
 
     private void Update()
     {
+        whatplaceyouendupin = Random.Range(1, 4);
+
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) && canTeleport == true)
         {
             SceneManager.LoadScene(whatplaceyouendupin);

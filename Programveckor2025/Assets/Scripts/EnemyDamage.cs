@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class EnemyDamage : MonoBehaviour
 {
-    public Healt healt;
-    public int damage = 2;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -20,11 +19,5 @@ public class EnemyDamage : MonoBehaviour
     }
 
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.tag == "Player")
-        {
-            healt.TakeDamage(damage);
-        }
-    }
+    
 }
