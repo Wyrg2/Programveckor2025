@@ -16,7 +16,7 @@ public class BellManArena2Script : MonoBehaviour
     private Vector2 bellManLocation;
     void Start()
     {
-        transform.position = new Vector2(-0.72f, -0.87f);
+        transform.position = new Vector3(-0.72f, -0.87f, -1);
         rb = GetComponent<Rigidbody2D>();
         JumpsLeft = 0;
         animate = GetComponent<Animator>();
