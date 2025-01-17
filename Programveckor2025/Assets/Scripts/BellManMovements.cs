@@ -8,10 +8,9 @@ public class BellManMovements : MonoBehaviour
     Rigidbody2D rb;
     
     private float Direction;
-    public float jumpHeight;
-    public float cooldown = 0.5f;
-    float timer = 0;
-    public float bulletspeed;
+    private float jumpHeight;
+    private float cooldown = 0.5f;
+    private float timer = 0;
     
     public GameObject projectilePrefab;
     public GameObject shooter;
@@ -78,13 +77,7 @@ public class BellManMovements : MonoBehaviour
         //Shooting script
         if (Input.GetMouseButton(0) && timer<=0)
         {
-           
-            GameObject bullet = Instantiate(projectilePrefab, shooter.transform.position, Quaternion.identity);
-            bullet.GetComponent<ProjectileBehaviour>().direction= Direction*bulletspeed;
-            if (Direction==0)
-            {
-                bullet.GetComponent<ProjectileBehaviour>().direction = bulletspeed;
-            }
+            Instantiate(projectilePrefab, shooter.transform.position, Quaternion.identity);
             timer = cooldown;
         }
 

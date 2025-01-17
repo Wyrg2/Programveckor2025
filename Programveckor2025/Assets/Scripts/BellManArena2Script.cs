@@ -11,9 +11,12 @@ public class BellManArena2Script : MonoBehaviour
     private float Direction;
     private int JumpsLeft;
     private Animator animate;
+    public GameObject Projectile;
+    public GameObject Arena2BellMan;
+    private Vector2 bellManLocation;
     void Start()
     {
-        transform.position = new Vector2(-0.72f, -0.87f);
+        transform.position = new Vector3(-0.72f, -0.87f, -1);
         rb = GetComponent<Rigidbody2D>();
         JumpsLeft = 0;
         animate = GetComponent<Animator>();
@@ -25,7 +28,7 @@ public class BellManArena2Script : MonoBehaviour
         // This code is responsible for movement
         Direction = (Input.GetAxis("Horizontal"));
         rb.velocity = new Vector2(Direction * 7.5f, rb.velocity.y);
-        if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space))
         {
             if(JumpsLeft > 0)
             {
@@ -33,6 +36,15 @@ public class BellManArena2Script : MonoBehaviour
                 JumpsLeft -= 1;
             }
         }
+
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            Instantiate(Projectile, bellManLocation, Quaternion.identity);
+        }
+
+
+
         //This code is responsible for animations
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
@@ -73,6 +85,21 @@ public class BellManArena2Script : MonoBehaviour
         {
             animate.Play("BellManFalling");
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        bellManLocation = new Vector2(transform.position.x, transform.position.y);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

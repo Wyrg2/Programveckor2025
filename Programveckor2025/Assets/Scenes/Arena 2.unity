@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 268311252}
   - component: {fileID: 268311256}
   - component: {fileID: 268311257}
+  - component: {fileID: 268311259}
   m_Layer: 0
   m_Name: BellMan
   m_TagString: Untagged
@@ -315,6 +316,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad84075c778407947a335c6575625d0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
+<<<<<<< HEAD
+  Projectile: {fileID: 4785015591492621220, guid: fe0b8c4857729c341ac28008274e0d1d, type: 3}
+=======
+--- !u!114 &268311258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268311250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2ac710fb9d763247981b95c901abc9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 2
+=======
+>>>>>>> b8f729a2c3e511c09c1308eede3ddfb87e54c4f7
+--- !u!114 &268311259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268311250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af1fd373dc4911045ad806268a5c29a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  maxHealth: 10
+>>>>>>> 35c67db95135d5801a7d7befbc99c1ee02ee94f6
 --- !u!1 &522835434
 GameObject:
   m_ObjectHideFlags: 0

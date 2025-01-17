@@ -3,27 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Healt : MonoBehaviour
+public class PlayBack : MonoBehaviour
 {
     public int health;
-    public int maxHealth = 10;
-    
+
+
     // Start is called before the first frame update
     void Start()
     {
-        health = maxHealth;
+        
     }
 
-    public void TakeDamage(int amount)
+    // Update is called once per frame
+    void Update()
     {
-        health -= amount;
-        print("test");
-        if(health <= 0)
+        if (health >= 0)
         {
-               SceneManager.LoadScene(0);
+            SceneManager.LoadScene(0);
         }
     }
-
-
-
 }
