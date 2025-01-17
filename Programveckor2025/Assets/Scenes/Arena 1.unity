@@ -201,7 +201,7 @@ Transform:
   m_GameObject: {fileID: 522835434}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.01, y: -3.64, z: 0}
+  m_LocalPosition: {x: 0, y: -3.64, z: 0}
   m_LocalScale: {x: 14.9, y: 15, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -453,7 +453,7 @@ Transform:
   m_GameObject: {fileID: 1499970391}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.01, y: 0.3, z: 1}
+  m_LocalPosition: {x: 0, y: 0.3, z: 1}
   m_LocalScale: {x: 14.9, y: 15, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -473,9 +473,10 @@ GameObject:
   - component: {fileID: 1601813345}
   - component: {fileID: 1601813344}
   - component: {fileID: 1601813343}
+  - component: {fileID: 1601813349}
   m_Layer: 3
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -565,7 +566,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpHeight: 8
-  cooldown: 0.5
+  cooldown: 0.2
+  bulletspeed: 15
   projectilePrefab: {fileID: 4785015591492621220, guid: fe0b8c4857729c341ac28008274e0d1d, type: 3}
   shooter: {fileID: 1372357853}
 --- !u!95 &1601813346
@@ -650,13 +652,27 @@ Transform:
   m_GameObject: {fileID: 1601813342}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8, y: -1.24, z: 0}
+  m_LocalPosition: {x: -8, y: -0.9, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1372357854}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1601813349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601813342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af1fd373dc4911045ad806268a5c29a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  maxHealth: 10
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
