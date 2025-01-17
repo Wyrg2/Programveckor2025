@@ -20,7 +20,7 @@ public class Healt : MonoBehaviour
         print("test");
         if(health <= 0)
         {
-               // SceneManager.LoadScene(0);
+               SceneManager.LoadScene(0);
         }
     }
 
