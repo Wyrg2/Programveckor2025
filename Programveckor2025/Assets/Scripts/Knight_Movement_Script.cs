@@ -47,11 +47,8 @@ public class Knight_Movement_Script : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            animate.Play("KnightAttack");
-        }
-        else
-        {
-            animate.Play("Knight Boss Dude");
+            animate.SetTrigger("Attack");
+            
         }
     }
 }

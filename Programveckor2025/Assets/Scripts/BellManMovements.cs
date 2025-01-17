@@ -8,9 +8,9 @@ public class BellManMovements : MonoBehaviour
     Rigidbody2D rb;
     
     private float Direction;
-    public float jumpHeight;
-    public float cooldown = 0.5f;
-    float timer = 0;
+    private float jumpHeight;
+    private float cooldown = 0.5f;
+    private float timer = 0;
     
     public GameObject projectilePrefab;
     public GameObject shooter;
