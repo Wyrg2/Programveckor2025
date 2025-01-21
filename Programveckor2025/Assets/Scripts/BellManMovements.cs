@@ -38,8 +38,6 @@ public class BellManMovements : MonoBehaviour
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             Direction = (Input.GetAxis("Horizontal"));
-            
-            
         }
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
