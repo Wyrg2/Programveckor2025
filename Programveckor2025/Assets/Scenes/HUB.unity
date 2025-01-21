@@ -2151,9 +2151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d85dc637ca9de14f8d539ea6085c0a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpHeight: 8
-  cooldown: 0.2
-  bulletspeed: 15
   projectilePrefab: {fileID: 4785015591492621220, guid: fe0b8c4857729c341ac28008274e0d1d, type: 3}
   shooter: {fileID: 1387933818}
 --- !u!95 &1846503075
@@ -2238,7 +2235,7 @@ Transform:
   m_GameObject: {fileID: 1846503070}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3, y: -1.5, z: 0}
+  m_LocalPosition: {x: -3, y: -1.5, z: -1}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
