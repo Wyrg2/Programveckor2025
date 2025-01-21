@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BellManMovements : MonoBehaviour
 {
     Rigidbody2D rb;
     
     private float Direction;
-    private float jumpHeight;
+    private float jumpHeight = 8;
     private float cooldown = 0.5f;
     private float timer = 0;
     
@@ -64,7 +65,6 @@ public class BellManMovements : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
         {
             Jump();
-            
         }
 
         //Double Jump Script
@@ -81,6 +81,11 @@ public class BellManMovements : MonoBehaviour
             timer = cooldown;
         }
 
+        //Return to Hub
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 
     void Jump()
