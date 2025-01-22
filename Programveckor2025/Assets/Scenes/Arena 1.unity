@@ -444,9 +444,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 570515139945957566, guid: 7e58c7f433765de4ab3ed61a59413878, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 621876353}
-    - targetCorrespondingSourceObject: {fileID: 570515139945957566, guid: 7e58c7f433765de4ab3ed61a59413878, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 621876352}
   m_SourcePrefab: {fileID: 100100000, guid: 7e58c7f433765de4ab3ed61a59413878, type: 3}
 --- !u!1 &621876351 stripped
@@ -467,21 +464,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
-  currentHealth: 0
---- !u!114 &621876353
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 621876351}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d545a6b2c77354842b8cb39d0aed0116, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healt: {fileID: 0}
-  damage: 2
+  currentHealth: 3
+  damage: 1
 --- !u!1 &1326168611
 GameObject:
   m_ObjectHideFlags: 0
@@ -926,9 +910,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d85dc637ca9de14f8d539ea6085c0a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpHeight: 8
-  cooldown: 0.2
-  bulletspeed: 15
   projectilePrefab: {fileID: 4785015591492621220, guid: fe0b8c4857729c341ac28008274e0d1d, type: 3}
   shooter: {fileID: 1372357853}
 --- !u!95 &1601813346

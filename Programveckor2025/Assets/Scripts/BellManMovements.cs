@@ -2,15 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BellManMovements : MonoBehaviour
 {
     Rigidbody2D rb;
     
     private float Direction;
-    private float jumpHeight;
+    private float jumpHeight = 8;
     private float cooldown = 0.5f;
     private float timer = 0;
+    int bulletspeed = 15;
     
     public GameObject projectilePrefab;
     public GameObject shooter;
@@ -37,8 +39,6 @@ public class BellManMovements : MonoBehaviour
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             Direction = (Input.GetAxis("Horizontal"));
-            
-            
         }
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
@@ -64,7 +64,6 @@ public class BellManMovements : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
         {
             Jump();
-            
         }
 
         //Double Jump Script
@@ -77,10 +76,20 @@ public class BellManMovements : MonoBehaviour
         //Shooting script
         if (Input.GetMouseButton(0) && timer<=0)
         {
-            Instantiate(projectilePrefab, shooter.transform.position, Quaternion.identity);
+            GameObject projectileClone = Instantiate(projectilePrefab, shooter.transform.position, Quaternion.identity);
+            projectileClone.GetComponent<ProjectileBehaviour>().direction = Direction*bulletspeed;
+            if (Direction == 0)
+            {
+                projectileClone.GetComponent<ProjectileBehaviour>().direction = bulletspeed;
+            }
             timer = cooldown;
         }
 
+        //Return to Hub
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 
     void Jump()
