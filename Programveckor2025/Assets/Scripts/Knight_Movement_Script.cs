@@ -5,11 +5,12 @@ using UnityEngine;
 public class Knight_Movement_Script : MonoBehaviour
 {
     Rigidbody2D rb;
-    public GameObject BellMan;
+    
     public int KnightDirection;
     Animator animate;
     int knightTimer;
-    public GameObject knightSlashAttack;
+    public GameObject knightAttack;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -36,8 +37,8 @@ public class Knight_Movement_Script : MonoBehaviour
 
         if(knightTimer == 0)
         {
-            animate.SetTrigger("Attack");
-            Instantiate()
+            Instantiate (knightAttack, transform.position, Quaternion.identity);
+           
         }
 
 
@@ -51,6 +52,13 @@ public class Knight_Movement_Script : MonoBehaviour
         {
             transform.localScale = new Vector2(15, 15);
         }
+
+        if(knightTimer == 0)
+        {
+            animate.Play("KnightAttack");
+            knightTimer = 500;
+        }
+        
     }
 
 }

@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 453890934}
   m_Layer: 0
   m_Name: Knight Boss
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -275,8 +275,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 775b4a57a0fb4cf4ba410681b9e499f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BellMan: {fileID: 0}
   KnightDirection: 0
+  knightAttack: {fileID: 5968249826057923357, guid: 9a955339ebb1e5d459e2c37451d0e597, type: 3}
 --- !u!50 &453890932
 Rigidbody2D:
   serializedVersion: 4
@@ -347,7 +347,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.11111111, y: 0.22777778}
+  m_Size: {x: 0.091111, y: 0.1877778}
   m_EdgeRadius: 0
 --- !u!114 &453890934
 MonoBehaviour:
@@ -444,8 +444,8 @@ Transform:
   m_GameObject: {fileID: 622755187}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.5674, y: 0.0331, z: 1}
-  m_LocalScale: {x: 7.097, y: 5.647179, z: 1}
+  m_LocalPosition: {x: 6.6739, y: 0.0331, z: 1}
+  m_LocalScale: {x: 7.2155204, y: 5.647179, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -666,8 +666,8 @@ Transform:
   m_GameObject: {fileID: 987049476}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.3861, y: 0.0633, z: 1}
-  m_LocalScale: {x: 7.3071494, y: 5.647179, z: 1}
+  m_LocalPosition: {x: -6.5535, y: 0.0633, z: 1}
+  m_LocalScale: {x: 7.493482, y: 5.647179, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -841,8 +841,8 @@ Transform:
   m_GameObject: {fileID: 1271122412}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0174, y: -3.36, z: -1}
-  m_LocalScale: {x: 14.360122, y: 6, z: 1}
+  m_LocalPosition: {x: -0.0434, y: -3.36, z: -1}
+  m_LocalScale: {x: 14.731463, y: 6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
