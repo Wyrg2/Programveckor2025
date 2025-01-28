@@ -45,8 +45,20 @@ public class BellManMovements : MonoBehaviour
             Direction = (Input.GetAxis("Horizontal"));
         }
 
-        
+       
         rb.velocity = new Vector2(Direction * 10, rb.velocity.y);
+
+        if(transform.position.x < -13)
+        {
+            transform.position = new Vector2(-12.95f, transform.position.y);
+        }
+
+        if(transform.position.x > 13)
+        {
+            transform.position = new Vector2(12.95f, transform.position.y);
+        }
+
+
 
 
         //Animation Responsible Code
@@ -124,6 +136,7 @@ public class BellManMovements : MonoBehaviour
             isGrounded = false;
             canDoubleJump = true;
         }
+   
     }
 }
    
