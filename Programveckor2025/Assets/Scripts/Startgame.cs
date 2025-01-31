@@ -19,6 +19,11 @@ public class Startgame : MonoBehaviour
 
     public void LoadHub()
     {
+        SceneManager.LoadScene(1);
+    }
+
+    public void LoadTitleScreen()
+    {
         SceneManager.LoadScene(0);
     }
 }

@@ -17,7 +17,7 @@ public class teleport : MonoBehaviour
 
     private void Update()
     {
-        whatplaceyouendupin = Random.Range(1, 4);
+        whatplaceyouendupin = Random.Range(2, 5);
 
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) && canTeleport == true)
         {
