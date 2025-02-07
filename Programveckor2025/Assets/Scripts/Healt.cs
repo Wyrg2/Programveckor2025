@@ -1,53 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Healt : MonoBehaviour
 {
-    public int health;
+    public int currenthealth;
     public int maxHealth = 10;
-    private int playerDamageTimer;
+    public int damage = 1;
+    public TextMeshProUGUI playerHealthText;
     
     // Start is called before the first frame update
     void Start()
     {
-        health = maxHealth;
-        playerDamageTimer = 500;
+        currenthealth = maxHealth;
+        playerHealthText.text = "Your Health: " + currenthealth;
     }
 
 
 
     private void Update()
     {
-        if(playerDamageTimer > -1)
-        {
-            playerDamageTimer -= 1;
-        }
+        
         
     }
 
-
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Projectile"))
+        if (collision.gameObject.tag == "Enemy")
         {
-            if (playerDamageTimer == -1)
-            {
-                TakeDamage(2);
-                playerDamageTimer = 200;
-            }
-
+            TakeDamage(damage);
         }
     }
     public void TakeDamage(int amount)
     {
-        health -= amount;
-        if(health <= 0)
+        currenthealth -= amount;
+        if(currenthealth <= 0)
         {
-               SceneManager.LoadScene(0);
+               SceneManager.LoadScene(5);
         }
+
+        playerHealthText.text = "Your Health: " + currenthealth;
     }
 
 
